@@ -98,6 +98,8 @@ void PLC_SetTimer(unsigned long long next, unsigned long long period);
 
 
 
+IEC_BOOL var0;
+IEC_BOOL *__IX0_0 = &var0;
 /**
  * Win32 specific code
  **/

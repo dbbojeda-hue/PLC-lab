@@ -35,27 +35,13 @@ typedef struct {
   // PROGRAM Interface - IN, OUT, IN_OUT variables
 
   // PROGRAM private variables - TEMP, private and located variables
-  __DECLARE_VAR(BOOL,INCLINADO)
+  __DECLARE_LOCATED(BOOL,INCLINADO)
   __DECLARE_VAR(BOOL,ULTIMO_TILT)
-  __DECLARE_EXTERNAL(INT,CONTEO_TILT)
+  __DECLARE_VAR(INT,CONTEO_TILT)
   CTU CTU1;
-  __DECLARE_EXTERNAL(BOOL,ESTADO1)
+  __DECLARE_VAR(BOOL,ESTADO1)
   TON TON0;
   TON TON1;
-  R_TRIG R_TRIG1;
-
-} CICLO_PRINCIPAL;
-
-void CICLO_PRINCIPAL_init__(CICLO_PRINCIPAL *data__, BOOL retain);
-// Code part
-void CICLO_PRINCIPAL_body__(CICLO_PRINCIPAL *data__);
-// PROGRAM ALERTA
-// Data part
-typedef struct {
-  // PROGRAM Interface - IN, OUT, IN_OUT variables
-
-  // PROGRAM private variables - TEMP, private and located variables
-  __DECLARE_EXTERNAL(BOOL,ESTADO1)
   __DECLARE_VAR(BOOL,SEGMENTO_A)
   __DECLARE_VAR(BOOL,SEGMENTO_B)
   __DECLARE_VAR(BOOL,SEGMENTO_C)
@@ -64,16 +50,17 @@ typedef struct {
   __DECLARE_VAR(BOOL,SEGMENTO_F)
   __DECLARE_VAR(BOOL,SEGMENTO_G)
   __DECLARE_VAR(BOOL,PARPADEAR_LED)
-  TON TON0;
+  TON TON2;
   TOF TOF0;
   CTU CTU0;
   R_TRIG R_TRIG1;
-  __DECLARE_VAR(BOOL,_TMP_NOT42_OUT)
-  __DECLARE_VAR(BOOL,_TMP_AND41_OUT)
+  R_TRIG R_TRIG2;
+  __DECLARE_VAR(BOOL,_TMP_NOT52_OUT)
+  __DECLARE_VAR(BOOL,_TMP_AND44_OUT)
 
-} ALERTA;
+} CICLO_PRINCIPAL;
 
-void ALERTA_init__(ALERTA *data__, BOOL retain);
+void CICLO_PRINCIPAL_init__(CICLO_PRINCIPAL *data__, BOOL retain);
 // Code part
-void ALERTA_body__(ALERTA *data__);
+void CICLO_PRINCIPAL_body__(CICLO_PRINCIPAL *data__);
 #endif //__POUS_H

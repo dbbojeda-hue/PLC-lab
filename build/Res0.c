@@ -13,37 +13,25 @@ extern unsigned long long common_ticktime__;
 #include "POUS.h"
 
 #include "Config0.h"
-__DECLARE_GLOBAL(BOOL,RES0,ESTADO1)
-__DECLARE_GLOBAL(INT,RES0,CONTEO_TILT)
 
 #include "POUS.c"
 
 BOOL PRINCIPAL;
-BOOL SALIDAS;
 CICLO_PRINCIPAL RES0__REGISTRO_ENTRADAS;
 #define REGISTRO_ENTRADAS RES0__REGISTRO_ENTRADAS
-ALERTA RES0__DAR_AVISO;
-#define DAR_AVISO RES0__DAR_AVISO
 
 void RES0_init__(void) {
   BOOL retain;
   retain = 0;
-  __INIT_GLOBAL(BOOL,ESTADO1,__INITIAL_VALUE(0),retain)
-  __INIT_GLOBAL(INT,CONTEO_TILT,__INITIAL_VALUE(0),retain)
+  
   PRINCIPAL = __BOOL_LITERAL(FALSE);
-  SALIDAS = __BOOL_LITERAL(FALSE);
   CICLO_PRINCIPAL_init__(&REGISTRO_ENTRADAS,retain);
-  ALERTA_init__(&DAR_AVISO,retain);
 }
 
 void RES0_run__(unsigned long tick) {
   PRINCIPAL = !(tick % 1);
-  SALIDAS = !(tick % 1);
   if (PRINCIPAL) {
     CICLO_PRINCIPAL_body__(&REGISTRO_ENTRADAS);
-  }
-  if (SALIDAS) {
-    ALERTA_body__(&DAR_AVISO);
   }
 }
 
