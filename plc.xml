@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Desconocido" productName="Sin nombre" productVersion="1" creationDateTime="2025-10-24T04:06:02"/>
-  <contentHeader name="Sin nombre" modificationDateTime="2025-10-25T06:17:49">
+  <contentHeader name="Sin nombre" modificationDateTime="2025-10-26T03:57:49">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -20,7 +20,7 @@
       <pou name="ciclo_principal" pouType="program">
         <interface>
           <localVars>
-            <variable name="inclinado">
+            <variable name="inclinado" address="%IX0.0">
               <type>
                 <BOOL/>
               </type>
@@ -28,6 +28,8 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
+          </localVars>
+          <localVars>
             <variable name="ultimo_tilt">
               <type>
                 <BOOL/>
@@ -374,7 +376,7 @@
             </variable>
           </externalVars>
           <localVars>
-            <variable name="segmento_a">
+            <variable name="segmento_a" address="%QX0.0">
               <type>
                 <BOOL/>
               </type>
@@ -382,7 +384,7 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
-            <variable name="segmento_b">
+            <variable name="segmento_b" address="%QX0.1">
               <type>
                 <BOOL/>
               </type>
@@ -390,7 +392,7 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
-            <variable name="segmento_c">
+            <variable name="segmento_c" address="%QX0.2">
               <type>
                 <BOOL/>
               </type>
@@ -398,7 +400,7 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
-            <variable name="segmento_d">
+            <variable name="segmento_d" address="%QX0.3">
               <type>
                 <BOOL/>
               </type>
@@ -406,7 +408,7 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
-            <variable name="segmento_e">
+            <variable name="segmento_e" address="%QX0.4">
               <type>
                 <BOOL/>
               </type>
@@ -414,7 +416,7 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
-            <variable name="segmento_f">
+            <variable name="segmento_f" address="%QX0.5">
               <type>
                 <BOOL/>
               </type>
@@ -422,7 +424,7 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
-            <variable name="segmento_g">
+            <variable name="segmento_g" address="%QX0.6">
               <type>
                 <BOOL/>
               </type>
@@ -430,7 +432,7 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
-            <variable name="parpadear_led">
+            <variable name="parpadear_led" address="%QX1.0">
               <type>
                 <BOOL/>
               </type>
@@ -438,6 +440,8 @@
                 <simpleValue value="0"/>
               </initialValue>
             </variable>
+          </localVars>
+          <localVars>
             <variable name="TON0">
               <type>
                 <derived name="TON"/>
