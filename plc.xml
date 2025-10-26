@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Desconocido" productName="Sin nombre" productVersion="1" creationDateTime="2025-10-24T04:06:02"/>
-  <contentHeader name="Sin nombre" modificationDateTime="2025-10-26T05:05:52">
+  <contentHeader name="Sin nombre" modificationDateTime="2025-10-26T16:56:22">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -20,7 +20,7 @@
       <pou name="ciclo_principal" pouType="program">
         <interface>
           <localVars>
-            <variable name="inclinado" address="%IX0.0">
+            <variable name="inclinado" address="%IX1.2">
               <type>
                 <BOOL/>
               </type>
@@ -57,46 +57,50 @@
                 <derived name="TON"/>
               </type>
             </variable>
-            <variable name="segmento_a">
+          </localVars>
+          <localVars>
+            <variable name="segmento_a" address="%QX0.0">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="segmento_b">
+            <variable name="segmento_b" address="%QX0.1">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="segmento_c">
+            <variable name="segmento_c" address="%QX0.2">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="segmento_d">
+            <variable name="segmento_d" address="%QX0.3">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="segmento_e">
+            <variable name="segmento_e" address="%QX0.4">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="segmento_f">
+            <variable name="segmento_f" address="%QX0.5">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="segmento_g">
+            <variable name="segmento_g" address="%QX0.6">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="parpadear_led">
+            <variable name="parpadear_led" address="%QX0.7">
               <type>
                 <BOOL/>
               </type>
             </variable>
+          </localVars>
+          <localVars>
             <variable name="TON2">
               <type>
                 <derived name="TON"/>
@@ -117,14 +121,14 @@
         <body>
           <LD>
             <contact localId="8" negated="false" width="21" height="20">
-              <position x="90" y="510"/>
+              <position x="90" y="870"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="34">
-                  <position x="90" y="520"/>
-                  <position x="60" y="520"/>
-                  <position x="60" y="540"/>
-                  <position x="30" y="540"/>
+                  <position x="90" y="880"/>
+                  <position x="60" y="880"/>
+                  <position x="60" y="900"/>
+                  <position x="30" y="900"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -133,18 +137,18 @@
               <variable>inclinado</variable>
             </contact>
             <coil localId="12" negated="false" width="21" height="20">
-              <position x="570" y="510"/>
+              <position x="570" y="870"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="28">
-                  <position x="570" y="520"/>
-                  <position x="522" y="520"/>
-                  <position x="522" y="600"/>
-                  <position x="131" y="600"/>
+                  <position x="570" y="880"/>
+                  <position x="522" y="880"/>
+                  <position x="522" y="960"/>
+                  <position x="131" y="960"/>
                 </connection>
                 <connection refLocalId="33" formalParameter="Q">
-                  <position x="570" y="520"/>
-                  <position x="340" y="520"/>
+                  <position x="570" y="880"/>
+                  <position x="340" y="880"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -153,12 +157,12 @@
               <variable>estado1</variable>
             </coil>
             <rightPowerRail localId="13" width="20" height="40">
-              <position x="740" y="500"/>
+              <position x="740" y="860"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="12">
-                  <position x="740" y="520"/>
-                  <position x="591" y="520"/>
+                  <position x="740" y="880"/>
+                  <position x="591" y="880"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
@@ -286,20 +290,20 @@
               </content>
             </comment>
             <comment localId="25" height="110" width="960">
-              <position x="20" y="350"/>
+              <position x="20" y="710"/>
               <content>
                 <xhtml:p><![CDATA[En este bloque se temporiza el paso de 1 segundo usando el temporizador TON. Si la señal de inclinación dura más de un segundo, la variable estado1 toma valor verdadero y permanece en verdadero. Si la señal dura menos de 1 segundo, entonces el temporizador no se activa y se reinicia el tiempo]]></xhtml:p>
               </content>
             </comment>
             <contact localId="28" negated="false" width="21" height="20">
-              <position x="110" y="590"/>
+              <position x="110" y="950"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="34">
-                  <position x="110" y="600"/>
-                  <position x="65" y="600"/>
-                  <position x="65" y="580"/>
-                  <position x="30" y="580"/>
+                  <position x="110" y="960"/>
+                  <position x="65" y="960"/>
+                  <position x="65" y="940"/>
+                  <position x="30" y="940"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -353,21 +357,21 @@
               <expression>T#100ms</expression>
             </inVariable>
             <inVariable localId="32" width="80" height="30" negated="false">
-              <position x="170" y="530"/>
+              <position x="170" y="890"/>
               <connectionPointOut>
                 <relPosition x="80" y="10"/>
               </connectionPointOut>
               <expression>T#1000ms</expression>
             </inVariable>
             <block localId="33" typeName="TON" instanceName="TON1" width="50" height="60">
-              <position x="290" y="490"/>
+              <position x="290" y="850"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="8">
-                      <position x="290" y="520"/>
-                      <position x="111" y="520"/>
+                      <position x="290" y="880"/>
+                      <position x="111" y="880"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -375,8 +379,8 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="32">
-                      <position x="290" y="540"/>
-                      <position x="250" y="540"/>
+                      <position x="290" y="900"/>
+                      <position x="250" y="900"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -396,7 +400,7 @@
               </outputVariables>
             </block>
             <leftPowerRail localId="34" width="10" height="80">
-              <position x="20" y="520"/>
+              <position x="20" y="880"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
@@ -405,7 +409,7 @@
               </connectionPointOut>
             </leftPowerRail>
             <comment localId="35" height="70" width="980">
-              <position x="20" y="640"/>
+              <position x="20" y="1000"/>
               <content>
                 <xhtml:p><![CDATA[Encender el Display de 7 segmentos
 
@@ -413,39 +417,39 @@ Este bloque enciende los segmentos necesarios del display de 7 segmentos para mo
               </content>
             </comment>
             <leftPowerRail localId="36" width="10" height="40">
-              <position x="20" y="760"/>
+              <position x="20" y="1120"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <rightPowerRail localId="37" width="10" height="80">
-              <position x="740" y="770"/>
+              <position x="740" y="1130"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="38">
-                  <position x="740" y="790"/>
-                  <position x="625" y="790"/>
-                  <position x="625" y="780"/>
-                  <position x="510" y="780"/>
+                  <position x="740" y="1150"/>
+                  <position x="625" y="1150"/>
+                  <position x="625" y="1140"/>
+                  <position x="511" y="1140"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="60"/>
                 <connection refLocalId="39">
-                  <position x="740" y="830"/>
-                  <position x="625" y="830"/>
-                  <position x="625" y="840"/>
-                  <position x="510" y="840"/>
+                  <position x="740" y="1190"/>
+                  <position x="625" y="1190"/>
+                  <position x="625" y="1200"/>
+                  <position x="511" y="1200"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <coil localId="38" negated="false" width="21" height="20">
-              <position x="490" y="770"/>
+              <position x="490" y="1130"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="41">
-                  <position x="490" y="780"/>
-                  <position x="180" y="780"/>
+                  <position x="490" y="1140"/>
+                  <position x="181" y="1140"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -454,14 +458,14 @@ Este bloque enciende los segmentos necesarios del display de 7 segmentos para mo
               <variable>segmento_b</variable>
             </coil>
             <coil localId="39" negated="false" width="21" height="20">
-              <position x="490" y="830"/>
+              <position x="490" y="1190"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="41">
-                  <position x="490" y="840"/>
-                  <position x="335" y="840"/>
-                  <position x="335" y="780"/>
-                  <position x="180" y="780"/>
+                  <position x="490" y="1200"/>
+                  <position x="335" y="1200"/>
+                  <position x="335" y="1140"/>
+                  <position x="181" y="1140"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -470,7 +474,7 @@ Este bloque enciende los segmentos necesarios del display de 7 segmentos para mo
               <variable>segmento_c</variable>
             </coil>
             <comment localId="40" height="90" width="760">
-              <position x="20" y="910"/>
+              <position x="20" y="1270"/>
               <content>
                 <xhtml:p><![CDATA[Parpadear el LED
 
@@ -478,12 +482,12 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
               </content>
             </comment>
             <contact localId="41" negated="false" width="21" height="20">
-              <position x="160" y="770"/>
+              <position x="160" y="1130"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="36">
-                  <position x="160" y="780"/>
-                  <position x="30" y="780"/>
+                  <position x="160" y="1140"/>
+                  <position x="30" y="1140"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -492,18 +496,18 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
               <variable>estado1</variable>
             </contact>
             <leftPowerRail localId="42" width="10" height="40">
-              <position x="20" y="1060"/>
+              <position x="20" y="1420"/>
               <connectionPointOut formalParameter="">
                 <relPosition x="10" y="20"/>
               </connectionPointOut>
             </leftPowerRail>
             <contact localId="43" negated="false" width="21" height="20">
-              <position x="100" y="1070"/>
+              <position x="100" y="1430"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="42">
-                  <position x="100" y="1080"/>
-                  <position x="30" y="1080"/>
+                  <position x="100" y="1440"/>
+                  <position x="30" y="1440"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -512,14 +516,14 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
               <variable>estado1</variable>
             </contact>
             <block localId="44" typeName="AND" width="70" height="60">
-              <position x="360" y="1050"/>
+              <position x="360" y="1410"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="53">
-                      <position x="360" y="1080"/>
-                      <position x="220" y="1080"/>
+                      <position x="360" y="1440"/>
+                      <position x="221" y="1440"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -527,10 +531,10 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="52" formalParameter="OUT">
-                      <position x="360" y="1100"/>
-                      <position x="315" y="1100"/>
-                      <position x="315" y="1150"/>
-                      <position x="270" y="1150"/>
+                      <position x="360" y="1460"/>
+                      <position x="315" y="1460"/>
+                      <position x="315" y="1510"/>
+                      <position x="270" y="1510"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -545,14 +549,14 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
               </outputVariables>
             </block>
             <block localId="45" typeName="TON" instanceName="TON2" width="50" height="60">
-              <position x="460" y="1050"/>
+              <position x="460" y="1410"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="44" formalParameter="OUT">
-                      <position x="460" y="1080"/>
-                      <position x="430" y="1080"/>
+                      <position x="460" y="1440"/>
+                      <position x="430" y="1440"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -560,10 +564,10 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="49">
-                      <position x="460" y="1100"/>
-                      <position x="445" y="1100"/>
-                      <position x="445" y="1160"/>
-                      <position x="430" y="1160"/>
+                      <position x="460" y="1460"/>
+                      <position x="445" y="1460"/>
+                      <position x="445" y="1520"/>
+                      <position x="430" y="1520"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -583,14 +587,14 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
               </outputVariables>
             </block>
             <block localId="46" typeName="TOF" instanceName="TOF0" width="50" height="60">
-              <position x="540" y="1050"/>
+              <position x="540" y="1410"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="45" formalParameter="Q">
-                      <position x="540" y="1080"/>
-                      <position x="510" y="1080"/>
+                      <position x="540" y="1440"/>
+                      <position x="510" y="1440"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -598,10 +602,10 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="49">
-                      <position x="540" y="1100"/>
-                      <position x="525" y="1100"/>
-                      <position x="525" y="1160"/>
-                      <position x="430" y="1160"/>
+                      <position x="540" y="1460"/>
+                      <position x="525" y="1460"/>
+                      <position x="525" y="1520"/>
+                      <position x="430" y="1520"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -621,12 +625,12 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
               </outputVariables>
             </block>
             <coil localId="47" negated="false" width="21" height="20">
-              <position x="660" y="1070"/>
+              <position x="660" y="1430"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="46" formalParameter="Q">
-                  <position x="660" y="1080"/>
-                  <position x="590" y="1080"/>
+                  <position x="660" y="1440"/>
+                  <position x="590" y="1440"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -635,35 +639,35 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
               <variable>parpadear_led</variable>
             </coil>
             <rightPowerRail localId="48" width="10" height="40">
-              <position x="740" y="1060"/>
+              <position x="740" y="1420"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="47">
-                  <position x="740" y="1080"/>
-                  <position x="680" y="1080"/>
+                  <position x="740" y="1440"/>
+                  <position x="681" y="1440"/>
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
             <inVariable localId="49" width="70" height="30" negated="false">
-              <position x="360" y="1140"/>
+              <position x="360" y="1500"/>
               <connectionPointOut>
                 <relPosition x="70" y="20"/>
               </connectionPointOut>
               <expression>T#200ms</expression>
             </inVariable>
             <block localId="50" typeName="CTU" instanceName="CTU0" width="50" height="80">
-              <position x="120" y="1120"/>
+              <position x="120" y="1480"/>
               <inputVariables>
                 <variable formalParameter="CU" edge="rising">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="46" formalParameter="Q">
-                      <position x="120" y="1150"/>
-                      <position x="40" y="1150"/>
-                      <position x="40" y="1220"/>
-                      <position x="620" y="1220"/>
-                      <position x="620" y="1080"/>
-                      <position x="590" y="1080"/>
+                      <position x="120" y="1510"/>
+                      <position x="40" y="1510"/>
+                      <position x="40" y="1580"/>
+                      <position x="620" y="1580"/>
+                      <position x="620" y="1440"/>
+                      <position x="590" y="1440"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -676,8 +680,10 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
                   <connectionPointIn>
                     <relPosition x="0" y="70"/>
                     <connection refLocalId="51">
-                      <position x="120" y="1190"/>
-                      <position x="90" y="1190"/>
+                      <position x="120" y="1550"/>
+                      <position x="105" y="1550"/>
+                      <position x="105" y="1540"/>
+                      <position x="90" y="1540"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -697,21 +703,21 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
               </outputVariables>
             </block>
             <inVariable localId="51" width="20" height="30" negated="false">
-              <position x="70" y="1170"/>
+              <position x="70" y="1530"/>
               <connectionPointOut>
-                <relPosition x="20" y="20"/>
+                <relPosition x="20" y="10"/>
               </connectionPointOut>
               <expression>5</expression>
             </inVariable>
             <block localId="52" typeName="NOT" width="60" height="40">
-              <position x="210" y="1120"/>
+              <position x="210" y="1480"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="50" formalParameter="Q">
-                      <position x="210" y="1150"/>
-                      <position x="170" y="1150"/>
+                      <position x="210" y="1510"/>
+                      <position x="170" y="1510"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -725,20 +731,185 @@ Este bloque se activa cuando el estado de la alarma es 1, que es lo mismo que es
                 </variable>
               </outputVariables>
             </block>
-            <contact localId="53" negated="true" width="20" height="20">
-              <position x="200" y="1070"/>
+            <contact localId="53" negated="true" width="21" height="20">
+              <position x="200" y="1430"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="43">
-                  <position x="200" y="1080"/>
-                  <position x="121" y="1080"/>
+                  <position x="200" y="1440"/>
+                  <position x="121" y="1440"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
-                <relPosition x="20" y="10"/>
+                <relPosition x="21" y="10"/>
               </connectionPointOut>
               <variable>parpadear_led</variable>
             </contact>
+            <comment localId="54" height="50" width="970">
+              <position x="20" y="340"/>
+              <content>
+                <xhtml:p><![CDATA[En este bloque se encienden los segmentos del display necesarios para que este muestre un 0 (cero)]]></xhtml:p>
+              </content>
+            </comment>
+            <leftPowerRail localId="55" width="10" height="40">
+              <position x="20" y="440"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="10" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <rightPowerRail localId="56" width="10" height="240">
+              <position x="740" y="440"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="58">
+                  <position x="740" y="460"/>
+                  <position x="580" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="60"/>
+                <connection refLocalId="59">
+                  <position x="740" y="500"/>
+                  <position x="580" y="500"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="100"/>
+                <connection refLocalId="60">
+                  <position x="740" y="540"/>
+                  <position x="580" y="540"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="140"/>
+                <connection refLocalId="61">
+                  <position x="740" y="580"/>
+                  <position x="580" y="580"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="180"/>
+                <connection refLocalId="62">
+                  <position x="740" y="620"/>
+                  <position x="580" y="620"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="0" y="220"/>
+                <connection refLocalId="63">
+                  <position x="740" y="660"/>
+                  <position x="580" y="660"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <contact localId="57" negated="true" width="21" height="20">
+              <position x="90" y="450"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="55">
+                  <position x="90" y="460"/>
+                  <position x="30" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>estado1</variable>
+            </contact>
+            <coil localId="58" negated="false" width="21" height="20">
+              <position x="560" y="450"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="57">
+                  <position x="560" y="460"/>
+                  <position x="111" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>segmento_a</variable>
+            </coil>
+            <coil localId="59" negated="false" width="21" height="20">
+              <position x="560" y="490"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="57">
+                  <position x="560" y="500"/>
+                  <position x="335" y="500"/>
+                  <position x="335" y="460"/>
+                  <position x="111" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>segmento_b</variable>
+            </coil>
+            <coil localId="60" negated="false" width="21" height="20">
+              <position x="560" y="530"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="57">
+                  <position x="560" y="540"/>
+                  <position x="335" y="540"/>
+                  <position x="335" y="460"/>
+                  <position x="111" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>segmento_c</variable>
+            </coil>
+            <coil localId="61" negated="false" width="21" height="20">
+              <position x="560" y="570"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="57">
+                  <position x="560" y="580"/>
+                  <position x="335" y="580"/>
+                  <position x="335" y="460"/>
+                  <position x="111" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>segmento_d</variable>
+            </coil>
+            <coil localId="62" negated="false" width="21" height="20">
+              <position x="560" y="610"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="57">
+                  <position x="560" y="620"/>
+                  <position x="335" y="620"/>
+                  <position x="335" y="460"/>
+                  <position x="111" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>segmento_e</variable>
+            </coil>
+            <coil localId="63" negated="false" width="21" height="20">
+              <position x="560" y="650"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="57">
+                  <position x="560" y="660"/>
+                  <position x="335" y="660"/>
+                  <position x="335" y="460"/>
+                  <position x="111" y="460"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>segmento_f</variable>
+            </coil>
           </LD>
         </body>
       </pou>

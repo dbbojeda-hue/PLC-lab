@@ -42,7 +42,7 @@ __end:
 
 
 void CICLO_PRINCIPAL_init__(CICLO_PRINCIPAL *data__, BOOL retain) {
-  __INIT_LOCATED(BOOL,__IX0_0,data__->INCLINADO,retain)
+  __INIT_LOCATED(BOOL,__IX1_2,data__->INCLINADO,retain)
   __INIT_LOCATED_VALUE(data__->INCLINADO,__BOOL_LITERAL(FALSE))
   __INIT_VAR(data__->ULTIMO_TILT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->CONTEO_TILT,0,retain)
@@ -50,14 +50,22 @@ void CICLO_PRINCIPAL_init__(CICLO_PRINCIPAL *data__, BOOL retain) {
   __INIT_VAR(data__->ESTADO1,__BOOL_LITERAL(FALSE),retain)
   TON_init__(&data__->TON0,retain);
   TON_init__(&data__->TON1,retain);
-  __INIT_VAR(data__->SEGMENTO_A,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->SEGMENTO_B,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->SEGMENTO_C,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->SEGMENTO_D,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->SEGMENTO_E,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->SEGMENTO_F,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->SEGMENTO_G,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->PARPADEAR_LED,__BOOL_LITERAL(FALSE),retain)
+  __INIT_LOCATED(BOOL,__QX0_0,data__->SEGMENTO_A,retain)
+  __INIT_LOCATED_VALUE(data__->SEGMENTO_A,__BOOL_LITERAL(FALSE))
+  __INIT_LOCATED(BOOL,__QX0_1,data__->SEGMENTO_B,retain)
+  __INIT_LOCATED_VALUE(data__->SEGMENTO_B,__BOOL_LITERAL(FALSE))
+  __INIT_LOCATED(BOOL,__QX0_2,data__->SEGMENTO_C,retain)
+  __INIT_LOCATED_VALUE(data__->SEGMENTO_C,__BOOL_LITERAL(FALSE))
+  __INIT_LOCATED(BOOL,__QX0_3,data__->SEGMENTO_D,retain)
+  __INIT_LOCATED_VALUE(data__->SEGMENTO_D,__BOOL_LITERAL(FALSE))
+  __INIT_LOCATED(BOOL,__QX0_4,data__->SEGMENTO_E,retain)
+  __INIT_LOCATED_VALUE(data__->SEGMENTO_E,__BOOL_LITERAL(FALSE))
+  __INIT_LOCATED(BOOL,__QX0_5,data__->SEGMENTO_F,retain)
+  __INIT_LOCATED_VALUE(data__->SEGMENTO_F,__BOOL_LITERAL(FALSE))
+  __INIT_LOCATED(BOOL,__QX0_6,data__->SEGMENTO_G,retain)
+  __INIT_LOCATED_VALUE(data__->SEGMENTO_G,__BOOL_LITERAL(FALSE))
+  __INIT_LOCATED(BOOL,__QX0_7,data__->PARPADEAR_LED,retain)
+  __INIT_LOCATED_VALUE(data__->PARPADEAR_LED,__BOOL_LITERAL(FALSE))
   TON_init__(&data__->TON2,retain);
   TOF_init__(&data__->TOF0,retain);
   CTU_init__(&data__->CTU0,retain);
@@ -85,8 +93,8 @@ void CICLO_PRINCIPAL_body__(CICLO_PRINCIPAL *data__) {
   __SET_VAR(data__->CTU1.,PV,,100);
   CTU_body__(&data__->CTU1);
   __SET_VAR(data__->,CONTEO_TILT,,__GET_VAR(data__->CTU1.CV,));
-  __SET_VAR(data__->,SEGMENTO_B,,__GET_VAR(data__->ESTADO1,));
-  __SET_VAR(data__->,SEGMENTO_C,,__GET_VAR(data__->ESTADO1,));
+  __SET_LOCATED(data__->,SEGMENTO_B,,__GET_VAR(data__->ESTADO1,));
+  __SET_LOCATED(data__->,SEGMENTO_C,,__GET_VAR(data__->ESTADO1,));
   __SET_VAR(data__->R_TRIG2.,CLK,,__GET_VAR(data__->TOF0.Q,));
   R_TRIG_body__(&data__->R_TRIG2);
   __SET_VAR(data__->CTU0.,CU,,__GET_VAR(data__->R_TRIG2.Q,));
@@ -97,7 +105,7 @@ void CICLO_PRINCIPAL_body__(CICLO_PRINCIPAL *data__) {
     (BOOL)__BOOL_LITERAL(TRUE),
     NULL,
     (UINT)2,
-    (BOOL)(!(__GET_VAR(data__->PARPADEAR_LED,)) && __GET_VAR(data__->ESTADO1,)),
+    (BOOL)(!(__GET_LOCATED(data__->PARPADEAR_LED,)) && __GET_VAR(data__->ESTADO1,)),
     (BOOL)__GET_VAR(data__->_TMP_NOT52_OUT,)));
   __SET_VAR(data__->TON2.,IN,,__GET_VAR(data__->_TMP_AND44_OUT,));
   __SET_VAR(data__->TON2.,PT,,__time_to_timespec(1, 200, 0, 0, 0, 0));
@@ -105,7 +113,13 @@ void CICLO_PRINCIPAL_body__(CICLO_PRINCIPAL *data__) {
   __SET_VAR(data__->TOF0.,IN,,__GET_VAR(data__->TON2.Q,));
   __SET_VAR(data__->TOF0.,PT,,__time_to_timespec(1, 200, 0, 0, 0, 0));
   TOF_body__(&data__->TOF0);
-  __SET_VAR(data__->,PARPADEAR_LED,,__GET_VAR(data__->TOF0.Q,));
+  __SET_LOCATED(data__->,PARPADEAR_LED,,__GET_VAR(data__->TOF0.Q,));
+  __SET_LOCATED(data__->,SEGMENTO_A,,!(__GET_VAR(data__->ESTADO1,)));
+  __SET_LOCATED(data__->,SEGMENTO_B,,!(__GET_VAR(data__->ESTADO1,)));
+  __SET_LOCATED(data__->,SEGMENTO_C,,!(__GET_VAR(data__->ESTADO1,)));
+  __SET_LOCATED(data__->,SEGMENTO_D,,!(__GET_VAR(data__->ESTADO1,)));
+  __SET_LOCATED(data__->,SEGMENTO_E,,!(__GET_VAR(data__->ESTADO1,)));
+  __SET_LOCATED(data__->,SEGMENTO_F,,!(__GET_VAR(data__->ESTADO1,)));
 
   goto __end;
 
